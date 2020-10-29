@@ -1,7 +1,9 @@
 # Unidade 4 - JSF
+Este projeto apresenta os exemplos apresentados na aula JSF - Primefaces (parte2).
+
 Este projeto está configurado para JSF seguindo a estrutura de projeto Maven.
 O projeto também está configurado para publicação no Heroku, considerando o  arquivo Procfile e o plug-in no arquivo "pom.xml".
-Ao baixar (clonar) este projeto, não se esqueça de realizar a importação no Eclipse como projeto Maven, ajustando as "facets" do projeto e propriedade de "Deployment...", adicionando as bibliotecas do Maven.
+Ao baixar (clonar) este projeto, não se esqueça de realizar a importação no Eclipse como projeto Maven, ajustando as "facets" do projeto (habilitando a aplicação web dinâmica, Java 8 e JSF 2.3), além do ajuste nas propriedades do projeto na opção "Deployment...", adicionando as bibliotecas do Maven.
  
 ## Quais as ferramentas utilizadas?
  * Eclipse 2020
