@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+    </h:head>
+    <h:body>
+    <h:form>
+       <!-- 
+        <h:outputText value="Esse é um exemplo de 'p:editor' : " />      
+        <p:editor/>
+		<br/>
+        <h:outputText value="Informe a data: " />
+        <p:calendar id="popup" value="#{bean.dataNasc}" />
+        <br/>
+        -->        
+        <h:outputLabel for="@next" value="Digite um número entre 1 e 100 : " /> 
+        <p:spinner id="minMax" value="#{bean.numeroInf}" min="1" max="100" />
+        <br/><br/>
+        <h:outputLabel value="Senha com 'Inline Feedback': " /> 
+        <p:password id="inlineFeedback" value="#{bean.password}" 
+               feedback="true" inline="true" />
+        <br/><br/>
+        <p:outputLabel for="fone" value="Telefone:" />
+        <p:inputMask id="fone" value="#{bean.fone}" mask="(99) 9999-9999"/>
+        
+        <br/><br/>
+        <!--    --> 
+        <p:outputLabel value="Input de Texto Autocomplete Simples:" for="ac1" />
+        <p:autoComplete id="ac1" value="#{bean.txt1}" maxResults="5"
+                         completeMethod="#{bean.completeText}" />
+        
+        <br/><br/>
+        
+        <p:outputLabel for="console" value="Opções de Console:" /> 
+        <p:selectOneRadio id="console" value="#{bean.console}" unselectable="true">
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" /><font></font>
+            <f:selectItem itemLabel="PS4" itemValue="PS4" /><font></font>
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" /><font></font>
+        </p:selectOneRadio>
+        
+        <br/><br/>
+        <p:outputLabel for="@next" value="Select One Basico:" /><font></font>
+        <p:selectOneMenu id="console2" value="#{bean.console2}" style="width:125px"><font></font>
+            <f:selectItem itemLabel="Select One" itemValue="" /><font></font>
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" /><font></font>
+            <f:selectItem itemLabel="PS4" itemValue="PS4" /><font></font>
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" /><font></font>
+             
+        </p:selectOneMenu>
+         
+             
+     </h:form>   
+        
+
+     
+    </h:body>
+</html>

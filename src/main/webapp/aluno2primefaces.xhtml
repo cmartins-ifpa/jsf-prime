@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastro de Aluno</title>
+</h:head>
+<h:body>
+	<h:form id="formulario">
+		<p:panel header="Cadastro de Aluno">
+			<p:panelGrid columns="2" cellpadding="5">
+				<h:outputText for="nome" value="Nome:" />
+				<p:inputText id="nome" label="Nome" value="#{alunoBean.aluno.nome}"
+					size="50" maxlength="50" required="true" />
+
+				<h:outputText for="dtnascimento" value="Data de Nascimento:" />
+
+				<p:calendar id="dtnascimento" required="true"
+					value="#{alunoBean.aluno.dataNascimento}" pattern="dd/MM/yyyy">
+					<f:convertDateTime id="padraoData" pattern="dd/MM/yyyy"
+						timeZone="America/Sao_Paulo" />
+				</p:calendar>
+
+				<h:outputText id="cursoLabel" value="Curso :" />
+				<h:selectOneMenu id="cursoNome"
+					value="#{alunoBean.aluno.curso.nome}">
+					<f:selectItem itemLabel="Java Básico" itemValue="Java Básico" />
+					<f:selectItem itemLabel="Java Web" itemValue="Java Web" />
+					<f:selectItem itemLabel="JSF" itemValue="JSF" />
+				</h:selectOneMenu>
+			</p:panelGrid>
+
+			<p:commandButton id="cadastrar" value="Cadastrar" update="listAlunos"
+				action="#{alunoBean.adicionarAluno}" />
+
+			<p:messages id="msg" showDetail="true" autoUpdate="true" />
+		</p:panel>
+
+	</h:form>
+
+
+	<h2>Lista de alunos</h2>
+	<p:dataTable id="listAlunos" value="#{alunoBean.listAlunos}" var="c">
+		<p:column headerText="Nome do Aluno">
+			<h:outputText value="#{c.nome}" />
+		</p:column>
+
+		<p:column headerText="Data-Nascimento">
+			<h:outputText id="valorDataNascimento" value="#{c.dataNascimento}">
+				<f:convertDateTime id="padraoDataNascimento" pattern="dd/MM/yyyy"
+					timeZone="America/Sao_Paulo" />
+			</h:outputText>
+		</p:column>
+
+		<p:column headerText="Idade">
+			<h:outputText id="idade" value="#{c.idade}" />
+		</p:column>
+
+		<p:column headerText="Curso">
+			<h:outputText id="curso" value="#{c.curso.nome}" />
+		</p:column>
+
+		<p:column headerText="Preço">
+			<h:outputText id="preco" value="#{c.curso.valor}" />
+		</p:column>
+
+	</p:dataTable>
+</h:body>
+</html>
